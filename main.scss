@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+// abstracts
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'abstracts/variables',
+	'abstracts/functions',
+	'abstracts/mixins';
+
+// vendor
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'vendor/normalize';
+
+// base
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'base/base',
+	'base/color',
+	'base/typography',
+	'base/breakpoints',
+	'base/helpers';
+
+// layout
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'layout/header',
+	'layout/footer';
+
+// components
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'components/boxes',
+	'components/button',
+	'components/input';
+
+// pages
+// ——————————————————————————————————————————————————————————————————————————————
+@import
+	'pages/home';

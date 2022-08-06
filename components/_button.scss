@@ -1,0 +1,146 @@
+// ——————————————————————————————————————————————————————————————————————————————
+// This file contains a class generator for buttons
+//
+// You can use the class following the sintax:
+// @style - Sets how colors are used
+// @type  - Sets which colors are used based on their purpose
+// @icon  - Position of the icon inside the button
+// @width - Button size, btn-expand sets width to 100%
+//
+// <button class="btn-@style-@type btn-@icon btn-@width"></button>
+//
+// For example:
+// <button class="btn-fill-primary btn-trailing btn-expand"></button>
+// ——————————————————————————————————————————————————————————————————————————————
+
+// Base
+// ——————————————————————————————————————————————————————————————————————————————
+button{
+	@include font($font-display);
+	@include flex;
+	transition: $duration-150;
+	border-radius: $radius-full;
+	height: $spacing-15;
+	padding: 0 $spacing-9;
+	cursor: pointer;
+
+	&:disabled, &[disabled]{
+		pointer-events: none;
+		background: set-color(gray, 50);
+		color: set-color(gray, 400);
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+// This classes set the position of the icon
+// ——————————————————————————————————————————————————————————————————————————————
+.btn-leading i{
+	order: -1;
+	margin-right: $spacing-6;
+}
+.btn-trailing i{
+	order: 1;
+	margin-left: $spacing-6;
+}
+
+// This class set the width of the button
+// ——————————————————————————————————————————————————————————————————————————————
+.btn-expand{
+	width: 100%;
+}
+
+// These maps are iterated to generate the classes
+//
+// - Map $types contains the button types
+// - Each type contains button styles
+// - These styles store the main color and some tones
+// - Tones are applied to the different button properties
+// ——————————————————————————————————————————————————————————————————————————————
+$primary:   sky;
+$success: green;
+$info:    blue;
+$warning: yellow;
+$danger:  red;
+
+$types:(
+	primary:(
+		fill:   ($primary, white, 500, 0, 600, 700),
+		tone:   ($primary, 500, 50, 0, 100, 200),
+		outline:($primary, 500, 0, 500, 50, 100),
+		text:   ($primary, 500, 0, 0, 0, 50),
+	),
+	success:(
+		fill:   ($success, white, 500, 0, 600, 700),
+		tone:   ($success, 500, 50, 0, 100, 200),
+		outline:($success, 500, 0, 500, 50, 100),
+		text:   ($success, 500, 0, 0, 0, 50),
+	),
+	info:(
+		fill:   ($info, white, 500, 0, 600, 700),
+		tone:   ($info, 500, 50, 0, 100, 200),
+		outline:($info, 500, 0, 500, 50, 100),
+		text:   ($info, 500, 0, 0, 0, 50),
+	),
+	warning:(
+		fill:   ($warning, white, 500, 0, 600, 700),
+		tone:   ($warning, 500, 50, 0, 100, 200),
+		outline:($warning, 500, 0, 500, 50, 100),
+		text:   ($warning, 500, 0, 0, 0, 50),
+	),
+	danger:(
+		fill:   ($danger, white, 600, 0, 700, 800),
+		tone:   ($danger, 700, 50, 0, 100, 200),
+		outline:($danger, 700, 0, 600, 50, 100),
+		text:   ($danger, 700, 0, 0, 0, 50),
+	)
+);
+
+@each $name-type, $type in $types{
+	@each $name-style, $style in $type {
+		$color:  nth($style, 1); // Main color
+		$font:   nth($style, 2); // Font color tone
+		$bg: 	 nth($style, 3); // Background color tone
+		$border: nth($style, 4); // Border color tone
+		$hover:  nth($style, 5); // Background color tone for hover and focus
+		$active: nth($style, 6); // Background color tone for active
+
+		// Class generation
+		.btn-#{$name-style}-#{$name-type}{
+			// Font color check
+			@if $font != white {
+				color: set-color($color, $font);
+			} @else{
+				color: $font;
+			}
+			// Background check
+			@if $bg != 0 {
+				background: set-color($color, $bg)
+			} @else {
+				background: transparent
+			}
+			// Border check
+			@if $border != 0 {
+				border: $border-xm solid set-color($color, $border)
+			} @else {
+				border: 0
+			}
+			// States hover, focus and active
+			&:hover{
+				@if $hover != 0 {
+					background: set-color($color, $hover)
+				} @else {
+					background: transparent
+				}
+			}
+			&:focus{
+				background: set-color($color, $hover)
+			}
+			&:active{
+				background: set-color($color, $active)
+			}
+		}
+	}
+};

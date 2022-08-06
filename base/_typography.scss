@@ -1,0 +1,47 @@
+// ——————————————————————————————————————————————————————————————————————————————
+// This file contains type settings
+// ——————————————————————————————————————————————————————————————————————————————
+
+// Base
+// ——————————————————————————————————————————————————————————————————————————————
+body{
+	@include font($font-text, $font-md, 400);
+}
+h1, h2, h3, h4, h5, p{
+	margin: $spacing-8 0;
+	color: set-color(slate, 600);
+}
+
+// Display
+// ——————————————————————————————————————————————————————————————————————————————
+h1{
+	@include font($font-display, $font-4xl, 600);
+}
+h2{
+	@include font($font-display, $font-3xl);
+}
+
+// Heading
+// ——————————————————————————————————————————————————————————————————————————————
+h3{
+	@include font($font-display, $font-2xl);
+}
+h4{
+	@include font($font-display, $font-xl);
+}
+h5{
+	@include font($font-text, $font-lg, 400);
+}
+
+// Paragraph
+// ——————————————————————————————————————————————————————————————————————————————
+p{
+	@include font($font-text, $font-md, 400);
+	color: set-color(gray, 700);
+}
+
+// Description
+// ——————————————————————————————————————————————————————————————————————————————
+.description{
+	@include font($font-text, $font-sm, 400);
+}

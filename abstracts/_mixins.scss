@@ -1,0 +1,16 @@
+// ——————————————————————————————————————————————————————————————————————————————
+// This file contains general mixins
+// ——————————————————————————————————————————————————————————————————————————————
+
+@mixin flex($align:center, $justify:center, $direction:row) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
+	flex-direction: $direction;
+}
+
+@mixin font($type, $size:$font-md, $weight:500){
+	font-size: $size;
+	font-family: $type;
+	font-weight: $weight;
+}

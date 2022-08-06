@@ -1,0 +1,151 @@
+// ——————————————————————————————————————————————————————————————————————————————
+// This file contains the color system
+//
+// Built with:
+// https://blog.yipl.com.np/defining-color-palette-in-sass-with-variables-6464c3c3b5e5
+//
+// If necessary, the number of colors can be reduces as follows:
+// color: (darker, dark, base, light, lighter)
+// ——————————————————————————————————————————————————————————————————————————————
+
+@function set-color($color, $tone:base){
+	@return map-get(map-get($palette, $color), $tone);
+}
+$palette: (
+	shadow: (
+		white: #FFF,
+		black: #000
+	),
+	gray: (
+		50:  #F9F9F9,
+		100: #F3F3F3,
+		200: #EBEBEB,
+		300: #DCDCDC,
+		400: #B8B8B8,
+		500: #999999,
+		600: #707070,
+		700: #5C5C5C,
+		800: #3E3E3E,
+		900: #1D1D1D,
+	),
+	slate: (
+		50: #E7EAF0,
+		100: #C3CADB,
+		200: #9DA8C3,
+		300: #7886AA,
+		400: #5C6D99,
+		500: #41548A,
+		600: #3A4D81,
+		700: #324376,
+		800: #2B3A69,
+		900: #212951,
+	),
+	blue: (
+		50: #EAEAFF,
+		100: #C8C9FF,
+		200: #A2A7FF,
+		300: #7783FF,
+		400: #5465FF,
+		500: #2A46FB,
+		600: #263CEF,
+		700: #1730E2,
+		800: #0121D8,
+		900: #0000BE,
+	),
+	sky: (
+		50: #E3F2FE,
+		100: #BADFFE,
+		200: #8ECCFF,
+		300: #5EB7FE,
+		400: #35A7FF,
+		500: #0099FE,
+		600: #008AF0,
+		700: #0078DD,
+		800: #0067CB,
+		900: #0048AB,
+	),
+	green: (
+		50: #E4F7E7,
+		100: #BDEAC3,
+		200: #90DD9C,
+		300: #5AD073,
+		400: #18C553,
+		500: #00BA2D,
+		600: #00AA23,
+		700: #009814,
+		800: #008700,
+		900: #006700,
+	),
+	yellow: (
+		50: #FFF8E1,
+		100: #FFECB3,
+		200: #FFE082,
+		300: #FFD54F,
+		400: #FFCA28,
+		500: #FFC007,
+		600: #FFB400,
+		700: #FFA000,
+		800: #FF8E00,
+		900: #FF6E01,
+	),
+	orange: (
+		50: #FBE9E7,
+		100: #FFCCBC,
+		200: #FFAB91,
+		300: #FF8A65,
+		400: #FF6F42,
+		500: #FF5621,
+		600: #F6501D,
+		700: #E84918,
+		800: #DA4114,
+		900: #C1340A,
+	),
+	red: (
+		50: #FFEBEF,
+		100: #FFCCD5,
+		200: #F4979E,
+		300: #EC6E77,
+		400: #F84856,
+		500: #FE2F3C,
+		600: #EF233B,
+		700: #DD1534,
+		800: #D0052D,
+		900: #C20020,
+	),
+	pink: (
+		50: #FFE9FC,
+		100: #FEC6F8,
+		200: #FF9EF5,
+		300: #FA73ED,
+		400: #F250E3,
+		500: #EA2DDB,
+		600: #D928D5,
+		700: #C421CE,
+		800: #B21EC7,
+		900: #9017BB,
+	),
+	violet: (
+		50: #F5E6F8,
+		100: #E5BFEE,
+		200: #D595E4,
+		300: #C469D9,
+		400: #B646D0,
+		500: #A91FC7,
+		600: #991EC1,
+		700: #841ABA,
+		800: #7116B3,
+		900: #4C10A7,
+	),
+	purple: (
+		50: #EFE8FC,
+		100: #D4C7F8,
+		200: #B7A1F5,
+		300: #9879F2,
+		400: #7E5AEE,
+		500: #623CEA,
+		600: #5537E3,
+		700: #422FDA,
+		800: #2A29D4,
+		900: #001BCB,
+	)
+)
